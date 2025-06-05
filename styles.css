@@ -44,3 +44,13 @@ html,body{
 .testimonials{
     background-color: #FAF6E9;
 }
+
+.content p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-decoration: underline;
+}
+
+.content h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-transform: uppercase;
+}

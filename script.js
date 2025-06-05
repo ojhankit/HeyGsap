@@ -69,6 +69,25 @@ document.getElementById("hero-btn").addEventListener("click", () => {
 //   }
 // })
 
+const container = document.querySelector('.cards-container')
+const cardCount = document.querySelectorAll('.card').length
+
+const cardWidth = container.querySelector('.card').offsetWidth;
+const gap = 16; // Tailwind's default gap-4 = 1rem = 16px
+const totalScroll = (cardWidth) * (cardCount - 1);
+
+  gsap.to(container, {
+    x: () => `-${totalScroll}px`,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#features",
+      start: "top top",
+      end: () => `+=${totalScroll}`,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+    }
+  });
 
 // moving box
 const thirdSection = document.querySelector('.testimonials')
@@ -80,7 +99,7 @@ gsap.to(box,{
   y:200,
   rotation:360,
   backgroundColor:"#EC7FA9",
-  ease:"circ.in",
+  ease:"power1.in",
   duration:2,
   scrollTrigger:{
     trigger:thirdSection,
