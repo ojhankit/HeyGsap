@@ -52,6 +52,32 @@ document.getElementById("hero-btn").addEventListener("click", () => {
   });
 });
 
+const button = document.getElementById("hero-btn");
+button.addEventListener("mousemove",(e)=>{
+  const rect = button.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const moveX = (x-rect.width/2) / 10;
+  const moveY = (y-rect.height/2) /10;
+
+  gsap.to(button,{
+    x:moveX,
+    y:moveY,
+    duration:0.3,
+    ease:"power3.out"
+  })
+})
+
+button.addEventListener("mouseleave",() =>{
+  gsap.to(button,{
+    x:0,
+    y:0,
+    duration:4,
+    ease:"elastic.out(1,0.5)",
+  })
+})
+
 // test
 // const container = document.querySelector(".cards-container");
 // const scrollAmount = container.scrollWidth - window.innerWidth;
@@ -109,3 +135,46 @@ gsap.to(box,{
     scrub:2,
   }
 })
+
+// timeline animation
+/*
+let tl = gsap.timeline()
+
+ tl.from(".content h3", {
+    y: -50,          
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out"
+  })
+  .from(".content p", {
+    y: -30,         
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out"
+  }, "-=0.5");
+
+*/
+
+// using ScrollTrigger for content
+
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".content",
+    start: "top 70%",
+    end: "top 30%",
+    scrub: 1,
+  }
+});
+
+tl.from(".content h3", {
+  y: -50,
+  opacity: 0,
+  duration: 1.3,
+  ease: "power2.out"
+})
+.from(".content p", {
+  y: -50,
+  opacity: 0,
+  duration: 1.4,
+  ease: "power2.out"
+});
