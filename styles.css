@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family:"";
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#cursor{
+    position: fixed;
+    top:0;
+    left:0;
+    width:60px;
+    height:60px;
+    background-color: rgba(20, 20, 20, 0.954);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+    transform-origin: center;
+    mix-blend-mode: difference;
+}
+
+#hero{
+    background-color: #F6F0F0;
+}
+
+#hero-heading{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Hide scrollbar across major browsers */
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+.cards-container {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.testimonials{
+    background-color: #FAF6E9;
+}
