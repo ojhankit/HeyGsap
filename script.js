@@ -73,8 +73,9 @@ const container = document.querySelector('.cards-container')
 const cardCount = document.querySelectorAll('.card').length
 
 const cardWidth = container.querySelector('.card').offsetWidth;
-const gap = 16; // Tailwind's default gap-4 = 1rem = 16px
-const totalScroll = (cardWidth) * (cardCount - 1);
+//const gap = 16; // Tailwind's default gap-4 = 1rem = 16px
+//const totalScroll = (cardWidth) * (cardCount - 1);
+const totalScroll = container.scrollWidth - window.innerWidth;
 
   gsap.to(container, {
     x: () => `-${totalScroll}px`,
