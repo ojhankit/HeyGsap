@@ -16,7 +16,7 @@ html,body{
     left:0;
     width:60px;
     height:60px;
-    background-color: rgba(20, 20, 20, 0.954);
+    background-color: #111;
     border-radius: 50%;
     pointer-events: none;
     z-index: 999;
@@ -54,3 +54,18 @@ html,body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-transform: uppercase;
 }
+
+.grid-gallery{
+    background-color: #ffffff;
+}
+
+.box{
+    background-color: #CAE8BD;
+}
+
+/* optional to handle smooth appearing of the fixed box */
+/* #fixed-box.active {
+  transform: translateX(-50%) translateY(0%);
+  opacity: 1;
+  pointer-events: auto;
+} */
