@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
+ feather.replace();
 const cursor = document.getElementById('cursor');
 
 window.addEventListener('mousemove', e => {
@@ -96,6 +97,7 @@ button.addEventListener("mouseleave",() =>{
 // })
 
 const container = document.querySelector('.cards-container')
+const cards = document.querySelectorAll('.card');
 const cardCount = document.querySelectorAll('.card').length
 
 const cardWidth = container.querySelector('.card').offsetWidth;
@@ -177,4 +179,39 @@ tl.from(".content h3", {
   opacity: 0,
   duration: 1.4,
   ease: "power2.out"
+});
+
+gsap.utils.toArray(".box").forEach((box, index) => {
+    gsap.from(box, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: index * 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: box,
+        start: "top 90%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  });
+
+const boxes = document.querySelectorAll(".box");
+
+boxes.forEach((box) => {
+  box.addEventListener("mouseenter", () => {
+    gsap.to(box, {
+      y: -15,
+      ease: "power1.inOut",
+      duration: 0.5,
+    });
+  });
+
+  box.addEventListener("mouseleave", () => {
+    gsap.to(box, {
+      y: 0,
+      ease: "power1.out",
+      duration: 0.5,
+    });
+  });
 });
