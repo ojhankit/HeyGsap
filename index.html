@@ -8,76 +8,102 @@
     <link rel="stylesheet" href="styles.css">
     <title>kuchbhi</title>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden pt-10">
     <!-- <section id="hero" class="hero-item h-screen w-full px-5 py-5 flex flex-col items-center justify-center ">
         <h1 id='hero-heading' class="hero-item text-6xl font-normal mb-4 text-center">Lorem Ipsum</h1>
         <p id='hero-text' class="hero-item text-2xl text-center max-w-xl mx-auto break-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, unde?</p>
         <button id="hero-btn" class="hero-item mt-4 px-2 py-6 rounded-2xl bg-gray-400 hover:bg-gray-500 transition duration-200 ease-out shadow-xl text-2xl">Click Me!</button>
     </section> -->
     <div id="cursor"></div>
-    <nav class=""></nav>
+    <nav class="fixed top-0 w-full flex justify-between items-center bg-white shadow-md px-6 py-4 z-50">
+        <h1 class="text-xl font-bold">YourLogo</h1>
+        <ul class="hidden sm:flex gap-6 text-gray-700 text-lg">
+            <li><a href="#hero" class="hover:text-blue-500">Home</a></li>
+            <li><a href="#features" class="hover:text-blue-500">Features</a></li>
+            <li><a href="#testimonials" class="hover:text-blue-500">Contact</a></li>
+        </ul>
+    </nav>
+
     <section id="hero" class="h-screen w-full px-5 py-5 flex flex-col items-center justify-center ">
-        <h1 id="hero-heading" class="hero-item text-4xl sm:text-6xl font-normal mb-4 text-center">Lorem Ipsum</h1>
+        <h1 id="hero-heading" class="hero-item text-4xl sm:text-6xl font-normal mb-4 text-center">Build Beautiful Web Experiences</h1>
         <p id="hero-text" class="hero-item text-xl sm:text-3xl text-center max-w-xl mx-auto break-words">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, unde?
+            We help startups and creators bring ideas to life with engaging design and cutting-edge animations.
         </p>
         <button id="hero-btn" class="hero-item mt-4 px-2  py-4 sm:py-6 rounded-2xl bg-gray-400 hover:bg-gray-500 transition duration-200 ease-out shadow-xl sm:text-lg text-2xl">
             Click Me!
         </button>
     </section>
 
-    <section id='features' class="min-h-screen w-full px-6 py-12 flex flex-col gap-2 justify-between">
-        <h2 class="text-5xl text-center mb-10">Lorem..</h2>
+    <section id='features' class="min-h-screen w-full px-6 py-12 flex flex-col gap-2 justify-between bg-gray-50">
+        <!-- Added bg-gray-50 -->
+        <h2 class="text-5xl text-center mb-4 font-bold text-gray-800">Top Features</h2>
+        <!-- Added text-gray-800 -->
         <hr class="border-gray-900">
-        <p class="text-3xl max-w-2xl mx-auto text-gray-600 mt-10 mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aliquid corporis eum quidem possimus officiis.</p>
-        <div class="cards-container flex gap-6 w-max px-6 py-4">
+        <!-- Added w-1/2 mx-auto-->
+        <p class="text-3xl max-w-2xl mx-auto text-gray-600 mt-10 mb-12 text-center">Tools that help you design, develop, and deploy faster — with stunning results.</p>
+        <div class="cards-container flex gap-6 w-full  px-6 py-4">
             <!-- This div will contains card and this will allow horizontal scroll using gsap -->
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
-                <div class="card min-w-[300px] h-48 bg-teal-600 rounded-xl shadow-md flex items-center justify-center text-2xl text-white">Lorem ipsum dolor sit.</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Responsive Layout</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">One-Click Deployment</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">SEO Optimization</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Custom Animations</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Real-Time Collaborations</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">CMS Integration</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Figma To Code</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Performance Reports</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Accessible Design</div>
+                <div class="card min-w-[300px] h-48  rounded-xl shadow-md flex items-center justify-center text-2xl">Dark Mode Ready</div>
         </div>
     </section>
-    <section class="testimonials min-h-screen px-3 py-6 flex flex-col md:flex-row justify-between gap-6 w-full relative overflow-hidden">
-        <div class="moving-box bg-blue-200 rounded-2xl w-full sm:w-[100px] md:w-[250px] h-[200px] z-10 shadow-xl flex items-center justify-center px-3 py-5">
-           
-        </div>
 
-        <div class="content px-5 py-5 flex flex-cols justify-center mr-10 flex flex-col gap-4 items-center justify-center border-l-2 border-gray-200">
-            <h3 class="text-4xl font-semibold mb-10">Lorem, ipsum.</h3>
+    <section class="testimonials min-h-screen px-3 py-6 flex flex-col sm:flex-row md:flex-row justify-between gap-6 w-full relative overflow-hidden">
+        <div class="moving-box bg-blue-200 rounded-2xl w-[40%] sm:w-[200px] md:w-[250px] h-[200px] z-10 shadow-xl flex items-center justify-center px-3 py-5"></div>
+
+        <div class="content px-5 py-5 flex flex-cols justify-center mr-10 flex flex-col gap-2 md:gap-4 items-center justify-center border-l-2 border-gray-200">
+            <h3 class="text-4xl font-semibold mb-6 md:mb-10">What Our Clients Say</h3>
             <p class="text-center md:text-left text-xl md:text-3xl max-w-xl px-4 z-20 ">
-            This is a testimonial section where you can showcase your user feedback or client stories. It adapts to screen size for a better user experience.
+            “Working with this team was a game changer. Our website traffic doubled within a month, and users love the interactive design.”
         </p>
         </div>
     </section>
-    <section class="grid-gallery h-screen w-full px-12 py-6 flex items-center justify-center">
-        <!-- <div class="overlay fixed top-0 left-0 w-full h-full backdrop-blur-sm z-20 hidden"></div> -->
-        <div class="wrapper w-3/4 h-full rounded-2xl  grid grid-cols-3 grid-rows-3 gap-4 p-4">
-            <div class="box box1 border-2 border-gray-200 flex items-center justify-center text-2xl rounded-lg shadow-lg px-2 py-2">
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, est.</p>
-            </div>
-            <div class="box box2 border-2 border-gray-200 flex items-center justify-center text-2xl rounded-lg shadow-lg px-2 py-2">
-                <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, tempora aliquam!</p>
-            </div>
-            <div class="box box3 border-2 border-gray-200 row-span-2 flex items-center justify-center text-2xl rounded-lg shadow-lg px-4">
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem inventore quaerat sed
-                </p>
-            </div>
 
-            <div class="box box4 border-2 border-gray-200 col-span-2 flex items-center justify-center text-2xl rounded-lg shadow-lg px-4">
-                <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos cupiditate.</p>
-            </div>
-            <div class="box box5 border-2 border-gray-200 flex items-center justify-center text-2xl rounded-lg shadow-lg px-2 py-2"><p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum assumenda consectetur consequuntur officia?</p></div>
-            <div class="box  box6 border-2 border-gray-200 flex col-span-2 items-center justify-center text-2xl rounded-lg shadow-lg px-4"><p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero culpa cum aliquam nobis.</p></div>
-        </div>
-        <!-- <div id="fixed-box" class="fixed bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full w-1/2 p-4 bg-white rounded-lg shadow-2xl z-30 transition-transform duration-500 ease-out pointer-events-none opacity-0"></div> -->
-    </section>
+<section class="grid-gallery min-h-screen w-full px-4 sm:px-6 py-6 flex items-center justify-center">
+  <div class="wrapper w-full sm:w-[90%] md:w-3/4 h-full rounded-2xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+
+    <div class="box border-2 border-gray-200 flex flex-col justify-between text-lg md:text-xl rounded-lg shadow-lg px-4 py-6">
+      <p class="text-center italic">"Always delivered on time with clean, scalable, and efficient code."</p>
+      <p class="text-right mt-4 font-semibold">— Ankit Ojha</p>
+    </div>
+
+    <div class="box border-2 border-gray-200 flex flex-col justify-between text-lg md:text-xl rounded-lg shadow-lg px-4 py-6">
+      <p class="text-center italic">"Their front-end work was pixel-perfect and incredibly responsive."</p>
+      <p class="text-right mt-4 font-semibold">— Neha Sharma</p>
+    </div>
+
+    <div class="box border-2 border-gray-200 sm:col-span-2 md:col-span-1 md:row-span-2 flex flex-col justify-between text-lg md:text-xl rounded-lg shadow-lg px-4 py-6">
+      <p class="text-center italic">"Built a robust backend architecture that scaled with zero downtime."</p>
+      <p class="text-right mt-4 font-semibold">— Rohan Mehta</p>
+    </div>
+
+    <div class="box border-2 border-gray-200 sm:col-span-1 md:col-span-2 flex flex-col justify-between text-lg md:text-xl rounded-lg shadow-lg px-4 py-6">
+      <p class="text-center italic">"Transformed the design vision into a high-performance, modern UI."</p>
+      <p class="text-right mt-4 font-semibold">— Priya Verma</p>
+    </div>
+
+    <div class="box border-2 border-gray-200 flex flex-col justify-between text-lg md:text-xl rounded-lg shadow-lg px-4 py-6">
+      <p class="text-center italic">"Proactive in debugging and always suggested great improvements."</p>
+      <p class="text-right mt-4 font-semibold">— Kunal Raj</p>
+    </div>
+
+    <div class="box border-2 border-gray-200 sm:col-span-2 flex flex-col justify-between text-lg md:text-xl rounded-lg shadow-lg px-4 py-6">
+      <p class="text-center italic">"Handled database design with foresight and strong normalization."</p>
+      <p class="text-right mt-4 font-semibold">— Aditi Malhotra</p>
+    </div>
+
+  </div>
+</section>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

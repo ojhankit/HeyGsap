@@ -79,23 +79,6 @@ button.addEventListener("mouseleave",() =>{
   })
 })
 
-// test
-// const container = document.querySelector(".cards-container");
-// const scrollAmount = container.scrollWidth - window.innerWidth;
-
-// gsap.to(container,{
-//   x: -scrollAmount,
-//   ease:"none",
-//   scrollTrigger:{
-//     trigger:"container",
-//     start:"bottom center",
-//     end:() => "+=" + scrollAmount,
-//     scrub:2,
-//     pin:true,
-//     markers:true,
-//   }
-// })
-
 const container = document.querySelector('.cards-container')
 const cards = document.querySelectorAll('.card');
 const cardCount = document.querySelectorAll('.card').length
@@ -129,7 +112,7 @@ gsap.to(box,{
   rotation:360,
   backgroundColor:"#EC7FA9",
   ease:"power1.in",
-  duration:2,
+  duration:1,
   scrollTrigger:{
     trigger:thirdSection,
     start:"top top",
@@ -137,27 +120,6 @@ gsap.to(box,{
     scrub:2,
   }
 })
-
-// timeline animation
-/*
-let tl = gsap.timeline()
-
- tl.from(".content h3", {
-    y: -50,          
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-  })
-  .from(".content p", {
-    y: -30,         
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
-  }, "-=0.5");
-
-*/
-
-// using ScrollTrigger for content
 
 let tl = gsap.timeline({
   scrollTrigger: {
