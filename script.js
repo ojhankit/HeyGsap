@@ -1,7 +1,10 @@
-gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
- feather.replace();
+// Register plugins first
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+feather.replace();
+
 const cursor = document.getElementById('cursor');
 
+// Mouse-following cursor
 window.addEventListener('mousemove', e => {
   gsap.to(cursor, {
     duration: 0.15,
@@ -11,85 +14,93 @@ window.addEventListener('mousemove', e => {
   });
 });
 
-gsap.to("#cursor", {
-  duration: 1.5,
-  rotation: 5,
-  scaleX: 1.1,
-  scaleY: 0.9,
-  yoyo: true,
-  repeat: -1,
-  ease: "sine.inOut"
-});
-
-
-gsap.fromTo(".hero-item",
-  {
+// Loading animation
+window.addEventListener("load", () => {
+  gsap.to("#loader", {
     opacity: 0,
-    y: -50
-  },
-  {
-    scrollTrigger: "#hero-heading",
-    opacity: 1,
-    y: 0,
-    duration: 2,
-    ease: "back.out(1.7)",
-    stagger:0.5,
-    scrollTrigger:{
-        trigger:"#hero",
-        start:"top 80%",
-        // toggleActions:"play reverse play reverse",
-    }
-  }
-);
+    duration: 1.3,
+    ease: "power2.out",
+    onComplete: () => {
+      document.getElementById("loader").style.display = "none";
 
-document.getElementById("hero-btn").addEventListener("click", () => {
-  gsap.to(window, {
-    duration: 1.2,
-    scrollTo: {
-      y: "#features", // ID of the next section
-      offsetY: 0
-    },
-    ease: "power2.inOut"
+      gsap.to("#main-content", {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        onComplete: startAnimations
+      });
+    }
   });
 });
 
-const button = document.getElementById("hero-btn");
-button.addEventListener("mousemove",(e)=>{
-  const rect = button.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+// GSAP animations (run after loader)
+function startAnimations() {
+  // Floating hero heading
+  gsap.to("#hero-heading", {
+    y: -10,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+    duration: 2
+  });
 
-  const moveX = (x-rect.width/2) / 10;
-  const moveY = (y-rect.height/2) /10;
+  // Pulsing cursor
+  gsap.to("#cursor", {
+    duration: 1.5,
+    rotation: 5,
+    scaleX: 1.1,
+    scaleY: 0.9,
+    yoyo: true,
+    repeat: -1,
+    ease: "sine.inOut"
+  });
 
-  gsap.to(button,{
-    x:moveX,
-    y:moveY,
-    duration:0.3,
-    ease:"power3.out"
-  })
-})
+  // Hero text fade-in
+  gsap.fromTo(".hero-item",
+    { opacity: 0, y: -50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 2,
+      ease: "back.out(1.7)",
+      stagger: 0.5,
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top 80%"
+      }
+    });
 
-button.addEventListener("mouseleave",() =>{
-  gsap.to(button,{
-    x:0,
-    y:0,
-    duration:4,
-    ease:"elastic.out(1,0.5)",
-  })
-})
+  // Scroll to features on button click
+  const button = document.getElementById("hero-btn");
+  button.addEventListener("click", () => {
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: { y: "#features", offsetY: 0 },
+      ease: "power2.inOut"
+    });
+  });
 
-const container = document.querySelector('.cards-container')
-const cards = document.querySelectorAll('.card');
-const cardCount = document.querySelectorAll('.card').length
+  // Button hover effect
+  button.addEventListener("mousemove", (e) => {
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const moveX = (x - rect.width / 2) / 10;
+    const moveY = (y - rect.height / 2) / 10;
 
-const cardWidth = container.querySelector('.card').offsetWidth;
-//const gap = 16; // Tailwind's default gap-4 = 1rem = 16px
-//const totalScroll = (cardWidth) * (cardCount - 1);
-const totalScroll = container.scrollWidth - window.innerWidth;
+    gsap.to(button, { x: moveX, y: moveY, duration: 0.3, ease: "power3.out" });
+  });
+
+  button.addEventListener("mouseleave", () => {
+    gsap.to(button, { x: 0, y: 0, duration: 4, ease: "elastic.out(1,0.5)" });
+  });
+
+  // Horizontal scroll for features cards
+  const container = document.querySelector('.cards-container');
+  const totalScroll = container.scrollWidth - window.innerWidth;
 
   gsap.to(container, {
-    x: () => `-${totalScroll}px`,
+    x: () => -totalScroll,
     ease: "none",
     scrollTrigger: {
       trigger: "#features",
@@ -97,53 +108,52 @@ const totalScroll = container.scrollWidth - window.innerWidth;
       end: () => `+=${totalScroll}`,
       scrub: true,
       pin: true,
-      anticipatePin: 1,
+      anticipatePin: 1
     }
   });
 
-// moving box
-const thirdSection = document.querySelector('.testimonials')
+  // Animated box in testimonials
+  gsap.to(".moving-box", {
+    x: 200,
+    y: 200,
+    rotation: 360,
+    backgroundColor: "#EC7FA9",
+    ease: "power1.in",
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".testimonials",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 2
+    }
+  });
 
-const box = document.querySelector('.moving-box')
+  // Animate testimonial section
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".content",
+      start: "top 70%",
+      end: "top 30%",
+      scrub: 1
+    }
+  })
+  .from(".content h3", {
+    y: -50,
+    opacity: 0,
+    duration: 1.3,
+    ease: "power2.out"
+  })
+  .from(".content p", {
+    y: -50,
+    opacity: 0,
+    duration: 1.4,
+    ease: "power2.out"
+  });
 
-gsap.to(box,{
-  x:200,
-  y:200,
-  rotation:360,
-  backgroundColor:"#EC7FA9",
-  ease:"power1.in",
-  duration:1,
-  scrollTrigger:{
-    trigger:thirdSection,
-    start:"top top",
-    end:"bottom bottom",
-    scrub:2,
-  }
-})
+  // Animate .box elements (grid-gallery section)
+  gsap.utils.toArray(".box").forEach((box, index) => {
+    box.style.backgroundColor = index % 2 === 0 ? "#e2ebec" : "#f0e6f6";
 
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".content",
-    start: "top 70%",
-    end: "top 30%",
-    scrub: 1,
-  }
-});
-
-tl.from(".content h3", {
-  y: -50,
-  opacity: 0,
-  duration: 1.3,
-  ease: "power2.out"
-})
-.from(".content p", {
-  y: -50,
-  opacity: 0,
-  duration: 1.4,
-  ease: "power2.out"
-});
-
-gsap.utils.toArray(".box").forEach((box, index) => {
     gsap.from(box, {
       opacity: 0,
       y: 50,
@@ -156,24 +166,35 @@ gsap.utils.toArray(".box").forEach((box, index) => {
         toggleActions: "play none none reverse"
       }
     });
-  });
 
-const boxes = document.querySelectorAll(".box");
+    // Hover interaction
+    box.addEventListener("mouseenter", () => {
+      gsap.to(box, { y: -15, ease: "power1.inOut", duration: 0.5 });
+    });
 
-boxes.forEach((box) => {
-  box.addEventListener("mouseenter", () => {
-    gsap.to(box, {
-      y: -15,
-      ease: "power1.inOut",
-      duration: 0.5,
+    box.addEventListener("mouseleave", () => {
+      gsap.to(box, { y: 0, ease: "power1.out", duration: 0.5 });
     });
   });
+  gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.out",
+      delay: i * 0.05
+    });
+     // Hover interaction
+    card.addEventListener("mouseenter", () => {
+      gsap.to(card, { y: -15, ease: "power1.inOut", duration: 0.5 });
+    });
 
-  box.addEventListener("mouseleave", () => {
-    gsap.to(box, {
-      y: 0,
-      ease: "power1.out",
-      duration: 0.5,
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, { y: 0, ease: "power1.out", duration: 0.5 });
     });
   });
-});
+}
