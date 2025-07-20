@@ -86,3 +86,15 @@ body {
   display: grid;
   grid-auto-rows: 1fr;
 }
+
+@media (max-width: 640px) {
+  .card {
+    min-width: 250px;
+  }
+  .step-card {
+    padding: 1.5rem;
+  }
+  #parallax-text {
+    font-size: 12vw;
+  }
+}

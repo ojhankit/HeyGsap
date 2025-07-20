@@ -221,4 +221,16 @@ function startAnimations() {
       scrub: true,
     },
   });
+
+  const menuToggle = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("sidebar");
+  const closeSidebar = document.getElementById("closeSidebar");
+
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.remove("translate-x-full");
+  });
+
+  closeSidebar.addEventListener("click", () => {
+    sidebar.classList.add("translate-x-full");
+  });
 }

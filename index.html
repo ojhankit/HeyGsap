@@ -16,15 +16,30 @@
   <div id="cursor"
     class="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference gradient-animation">
   </div>
-<div id="main-content" class="opacity-0">
+  <div id="main-content" class="opacity-0">
   <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] max-w-5xl bg-white/40 backdrop-blur-md rounded-xl shadow-sm px-4 py-2 flex justify-between items-center z-50 border border-gray-200">
-    <img class="w-20 h-auto" src="./logo.png" alt="Logo">
-    <ul class="hidden sm:flex gap-4 text-gray-700 text-sm font-medium">
-      <li><a href="#hero" class="hover:text-blue-500 transition duration-300">Home</a></li>
-      <li><a href="#features" class="hover:text-blue-500 transition duration-300">Features</a></li>
-      <li><a href="contact.html" class="hover:text-blue-500 transition duration-300">Contact</a></li>
-    </ul>
+      <img class="w-20 h-auto" src="./logo.png" alt="Logo">
+      <!-- Desktop Menu -->
+      <ul class="hidden sm:flex gap-4 text-gray-700 text-sm font-medium">
+        <li><a href="index.html" class="hover:text-blue-500 transition">Home</a></li>
+        <li><a href="#features" class="hover:text-blue-500 transition">Features</a></li>
+        <li><a href="contact.html" class="hover:text-blue-500 transition">Contact</a></li>
+      </ul>   
+      <button id="menuToggle" class="sm:hidden text-gray-700">
+        ☰
+      </button>
   </nav>
+
+  <div id="sidebar" class="fixed top-0 right-0 h-screen w-64 bg-white shadow-lg z-[999] transform translate-x-full transition-transform duration-300 sm:hidden">
+    <div class="flex justify-end p-4">
+      <button id="closeSidebar" class="text-2xl">×</button>
+    </div>
+    <ul class="flex flex-col items-start gap-4 px-6 text-gray-700 text-base font-medium">
+      <li><a href="index.html" class="hover:text-blue-500 transition">Home</a></li>
+      <li><a href="#features" class="hover:text-blue-500 transition">Features</a></li>
+      <li><a href="contact.html" class="hover:text-blue-500 transition">Contact</a></li>
+    </ul>
+  </div>
 
   <section id="hero" class="h-screen w-full px-5 pt-32 pb-5 flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
     <h1 id="hero-heading" class="hero-item text-4xl sm:text-6xl font-normal mb-4 text-center">
@@ -44,7 +59,7 @@
     <p class="text-3xl max-w-2xl mx-auto text-gray-600 mt-10 mb-12 text-center">
       Everything you need to design, build, and ship breathtaking experiences — faster than ever
     </p>
-    <div class="cards-container flex gap-6 px-6 py-4">
+    <div class="cards-container flex gap-6 px-6 py-4  sm:overflow-x-visible">
       <div class="card min-w-[300px] h-48 rounded-xl shadow-md flex items-center justify-center text-2xl">Responsive Layout</div>
       <div class="card min-w-[300px] h-48 rounded-xl shadow-md flex items-center justify-center text-2xl">One-Click Deployment</div>
       <div class="card min-w-[300px] h-48 rounded-xl shadow-md flex items-center justify-center text-2xl">SEO Optimization</div>
@@ -95,27 +110,29 @@
       <p class="text-xl md:text-3xl max-w-xl text-center italic underline">“Partnering with this team was transformative — our traffic soared, and engagement skyrocketed.”</p>
     </div>
   </section>
-<section id="horizontal-parallax" class="relative h-[300vh] bg-gradient-to-r from-purple-50 to-blue-100 flex items-start justify-center px-10 pt-[40vh]">
-  <div class="sticky top-1/2 transform -translate-y-1/2 w-full">
-    <div id="parallax-text" class="whitespace-nowrap text-[10vw] font-bold text-gray-800 leading-none">
+  <section id="horizontal-parallax" class="relative h-[200vh] sm:h-[300vh] bg-gradient-to-r from-purple-50 to-blue-100 flex items-center sm:items-start justify-center px-6 pt-[40vh]">
+  <div class="sticky top-1/2 transform -translate-y-1/2 w-full max-w-6xl mx-auto">
+    <div id="parallax-text" class="whitespace-nowrap text-[10vw] sm:text-[8vw] md:text-[6vw] font-bold text-gray-800 leading-none text-center">
       Discover. Design. Deliver. ✦ Discover. Design. Deliver. ✦ Discover. Design. Deliver. ✦
     </div>
 
-    <div class="mt-12">
-      <p class="text-2xl md:text-3xl font-semibold text-gray-700">
+    <div class="mt-12 px-2 sm:px-0 text-center">
+      <p class="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-700">
         Every scroll brings a new idea to life
       </p>
-      <div class="w-24 h-1 bg-purple-400 mt-4 mb-6 rounded-full"></div>
+      <div class="w-20 sm:w-24 h-1 bg-purple-400 mt-4 mb-6 mx-auto rounded-full"></div>
 
-      <p class="max-w-xl text-gray-600 text-lg">
+      <p class="max-w-xl text-gray-600 text-base sm:text-lg mx-auto">
         From ideation to execution, we craft digital experiences that resonate. Let your next big idea unfold with purpose and creativity.
       </p>
     </div>
   </div>
 </section>
 
- <section class="grid-gallery min-h-screen w-full px-4 sm:px-6 py-12 bg-white">
-  <h2 class="text-6xl font-bold text-center mt-10 underline text-gray-800">Testimonials</h2>
+ <section class="grid-gallery min-h-screen w-full px-4 sm:px-6 py-12 bg-white flex flex-col items-center sm:gap-20">
+  <h2 class="text-5xl sm:text-6xl font-bold text-center mt-20 sm:mt-10 underline text-gray-800">
+    Testimonials
+  </h2>
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4" id="testimonial-wrapper">
     
     <!-- Card -->
