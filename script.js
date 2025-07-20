@@ -1,4 +1,3 @@
-// Register plugins first
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 feather.replace();
 
