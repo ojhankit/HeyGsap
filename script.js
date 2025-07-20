@@ -18,23 +18,22 @@ window.addEventListener('mousemove', e => {
 window.addEventListener("load", () => {
   gsap.to("#loader", {
     opacity: 0,
-    duration: 1.3,
+    duration: 1.5,
     ease: "power2.out",
     onComplete: () => {
       document.getElementById("loader").style.display = "none";
-
-      gsap.to("#main-content", {
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-        onComplete: startAnimations
-      });
+      startAnimations();
     }
   });
 });
 
 // GSAP animations (run after loader)
 function startAnimations() {
+  gsap.to("#main-content", {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+  });
   // Floating hero heading
   gsap.to("#hero-heading", {
     y: -10,
@@ -62,8 +61,8 @@ function startAnimations() {
       opacity: 1,
       y: 0,
       duration: 2,
-      ease: "back.out(1.7)",
-      stagger: 0.5,
+      ease: "power2.inOut",
+      stagger: 0.8,
       scrollTrigger: {
         trigger: "#hero",
         start: "top 80%"
@@ -210,5 +209,17 @@ function startAnimations() {
     card.addEventListener("mouseleave", () => {
       gsap.to(card, { y: 0, ease: "power1.out", duration: 0.5 });
     });
+  });
+  const text = document.getElementById("parallax-text");
+
+  gsap.to(text, {
+    x: () => -text.offsetWidth / 2,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#horizontal-parallax",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+    },
   });
 }
