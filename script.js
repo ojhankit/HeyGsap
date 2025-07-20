@@ -111,6 +111,20 @@ function startAnimations() {
       anticipatePin: 1
     }
   });
+  // Animate step cards on scroll
+  gsap.utils.toArray(".step-card").forEach((card, i) => {
+  gsap.to(card, {
+    y: -50,
+    ease: "none",
+    scrollTrigger: {
+      trigger: card,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+});
+
 
   // Animated box in testimonials
   gsap.to(".moving-box", {
